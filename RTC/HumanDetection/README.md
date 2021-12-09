@@ -1,5 +1,5 @@
 # Nuitrackを用いた骨格検出環境の構築  
-**Nuitrack SDKのダウンロード** 
+### Nuitrack SDKのダウンロード
 1. github用のディレクトリの作成  
 $cd  
 $mkdir github  
