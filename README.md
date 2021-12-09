@@ -12,7 +12,8 @@
 * ROS:ROS melodic  
 
 # 開発コンポーネント
-* [HumanDetection](https://github.com/Hisanori-Suito/HumanDetection)
+* [HumanDetection](https://github.com/rsdlab/HumanDetection/tree/master/RTC/HumanDetection)
+* [HumanProtection](https://github.com/rsdlab/HumanDetection/tree/master/RTC/HumanProtection)
 
 # ドキュメント
 **マニュアル**
