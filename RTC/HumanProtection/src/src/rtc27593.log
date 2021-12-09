@@ -1,0 +1,40 @@
+Sep 15 09:09:00.955 INFO: manager: 1.2.2
+Sep 15 09:09:00.955 INFO: manager: Copyright (C) 2003-2020, Noriaki Ando and OpenRTM development team,
+Sep 15 09:09:00.955 INFO: manager:   Intelligent Systems Research Institute, AIST,
+Sep 15 09:09:00.955 INFO: manager: Copyright (C) 2020, Noriaki Ando and OpenRTM development team,
+Sep 15 09:09:00.955 INFO: manager:   Industrial Cyber-Physical Research Center, AIST,
+Sep 15 09:09:00.955 INFO: manager:   All right reserved.
+Sep 15 09:09:00.955 INFO: manager: Manager starting.
+Sep 15 09:09:00.955 INFO: manager: Starting local logging.
+Sep 15 09:09:00.958 WARNING: NamingOnCorba: No endpoint for the CORBA naming service (localhost) was found.
+Sep 15 09:09:00.958 INFO: NamingManager: NameServer connection succeeded: corba/localhost
+Sep 15 09:09:00.958 INFO: ManagerServant: Named manager reference (INS) was successfully created.
+Sep 15 09:09:00.958 WARNING: ManagerServant: Master manager not found
+Sep 15 09:09:00.959 INFO: LocalServiceAdmin: All the local services are enabled.
+Sep 15 09:09:00.959 INFO: ec_base: setRate(1000000.000000) done
+Sep 15 09:09:00.959 INFO: ec_base: setRate(1000.000000) done
+Sep 15 09:09:00.959 INFO: HumanProtection0: 1 execution context was created.
+Sep 15 09:09:00.959 INFO: HumanProtection0: Initial active configuration set is default.
+Sep 15 09:09:10.980 INFO: ManagerServant: Master manager not found
+Sep 15 09:09:19.078 WARNING: SdoServiceAdmin: No available SDO service in the factory: 
+Sep 15 09:09:21.002 INFO: ManagerServant: Master manager not found
+Sep 15 09:09:31.023 INFO: ManagerServant: Master manager not found
+Sep 15 09:09:41.045 INFO: ManagerServant: Master manager not found
+Sep 15 09:09:51.065 INFO: ManagerServant: Master manager not found
+Sep 15 09:10:01.086 INFO: ManagerServant: Master manager not found
+Sep 15 09:10:11.106 INFO: ManagerServant: Master manager not found
+Sep 15 09:10:21.127 INFO: ManagerServant: Master manager not found
+Sep 15 09:10:31.147 INFO: ManagerServant: Master manager not found
+Sep 15 09:10:41.168 INFO: ManagerServant: Master manager not found
+Sep 15 09:10:51.189 INFO: ManagerServant: Master manager not found
+Sep 15 09:11:01.210 INFO: ManagerServant: Master manager not found
+Sep 15 09:11:11.231 INFO: ManagerServant: Master manager not found
+Sep 15 09:11:21.252 INFO: ManagerServant: Master manager not found
+Sep 15 09:11:31.272 INFO: ManagerServant: Master manager not found
+Sep 15 09:11:41.293 INFO: ManagerServant: Master manager not found
+Sep 15 09:11:51.309 INFO: ManagerServant: Master manager not found
+Sep 15 09:12:01.329 INFO: ManagerServant: Master manager not found
+Sep 15 09:12:11.354 INFO: ManagerServant: Master manager not found
+Sep 15 09:12:13.191 ERROR: ec_worker: State of the RTC is not ACTIVE_STATE.
+Sep 15 09:12:13.234 WARNING: ec_worker: ExecutionContext is already stopped.
+Sep 15 09:12:13.234 ERROR: ec_base: Invoking on_shutdown() for each RTC failed.

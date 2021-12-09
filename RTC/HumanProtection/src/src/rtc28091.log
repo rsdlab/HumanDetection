@@ -1,0 +1,26 @@
+Sep 15 09:40:09.772 INFO: manager: 1.2.2
+Sep 15 09:40:09.773 INFO: manager: Copyright (C) 2003-2020, Noriaki Ando and OpenRTM development team,
+Sep 15 09:40:09.773 INFO: manager:   Intelligent Systems Research Institute, AIST,
+Sep 15 09:40:09.773 INFO: manager: Copyright (C) 2020, Noriaki Ando and OpenRTM development team,
+Sep 15 09:40:09.773 INFO: manager:   Industrial Cyber-Physical Research Center, AIST,
+Sep 15 09:40:09.773 INFO: manager:   All right reserved.
+Sep 15 09:40:09.773 INFO: manager: Manager starting.
+Sep 15 09:40:09.773 INFO: manager: Starting local logging.
+Sep 15 09:40:09.775 WARNING: NamingOnCorba: No endpoint for the CORBA naming service (localhost) was found.
+Sep 15 09:40:09.775 INFO: NamingManager: NameServer connection succeeded: corba/localhost
+Sep 15 09:40:09.775 INFO: ManagerServant: Named manager reference (INS) was successfully created.
+Sep 15 09:40:09.776 WARNING: ManagerServant: Master manager not found
+Sep 15 09:40:09.776 INFO: LocalServiceAdmin: All the local services are enabled.
+Sep 15 09:40:09.776 INFO: ec_base: setRate(1000000.000000) done
+Sep 15 09:40:09.776 INFO: ec_base: setRate(1000.000000) done
+Sep 15 09:40:09.776 INFO: HumanProtection0: 1 execution context was created.
+Sep 15 09:40:09.776 INFO: HumanProtection0: Initial active configuration set is default.
+Sep 15 09:40:19.793 INFO: ManagerServant: Master manager not found
+Sep 15 09:40:21.497 WARNING: SdoServiceAdmin: No available SDO service in the factory: 
+Sep 15 09:40:29.812 INFO: ManagerServant: Master manager not found
+Sep 15 09:40:39.832 INFO: ManagerServant: Master manager not found
+Sep 15 09:40:49.853 INFO: ManagerServant: Master manager not found
+Sep 15 09:40:59.874 INFO: ManagerServant: Master manager not found
+Sep 15 09:41:08.046 ERROR: ec_worker: State of the RTC is not ACTIVE_STATE.
+Sep 15 09:41:08.092 WARNING: ec_worker: ExecutionContext is already stopped.
+Sep 15 09:41:08.092 ERROR: ec_base: Invoking on_shutdown() for each RTC failed.
