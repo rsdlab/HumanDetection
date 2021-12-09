@@ -1,43 +1,45 @@
-# 人検知モジュールを用いた人協働ロボットシステム  
+# Nuitrackを用いた骨格検出環境の構築  
+**Nuitrack SDKのダウンロード** 
+1. github用のディレクトリの作成  
+$cd  
+$mkdir github  
+$cd github 
 
-# 概要
-**Nuitrackライブラリを用いた人検出コンポーネント**  
-* このコンポーネントではRealSenseなどのRGB-Dカメラを用いて、人の手や、骨格、顔のトラッキングが可能になります。（骨格と顔は対応中）
-   
-**このコンポーネントの応用として、昨年度のRTMコンテストで発表された「RTMとROSを用いた物体操作システム」の再利用を通じた、人協働マニピュレーションシステムにおける安全機能を実現** 
-* このロボットシステムは，ROSで動作するROBOTIS社のMikataArmの動作を人検出モジュールからの情報で制御する例を公開しています。（資料準備中）  
+2. OpenNIのアンインストール  
+$sudo apt remove openni-utils libopenni-dev  
 
-# 仕様
-**人検知コンポーネント**  
-* 開発言語:C++  
-* OS:Linux(Ubuntu18.04)  
-* ミドルウェア:OpenRTM-1.2.2 
+3. git lfsのインストール  
+$sudo apt install git-lfs  
 
-**アーム制御コンポーネント**  
+4. OpenCV3.4.9のインストール  
+$cd  
+$cd github  
+$git clone https://github.com/opencv/opencv  
+$cd opencv  
+$git checkout 3.4  
+$mkdir build  
+$cd build  
+$cmake ..  
+$make -j"$(nproc)"  
+$sudo make install  
 
-**共通**
-* OS:Ubuntu20.04   
+5. Nuitrack SDKのダウンロード&インストール  
+$git clone https://github.com/3DiVi/nuitrack-sdk  
+$cd nuitrack-sdk  
+$git lfs install  
+$git lfs pull --include "Platforms/*"  
+$git lfs pull --include "Unity3D/*"  
+$cd Platforms  
+$sudo apt install ./nuitrack-ubuntu-amd64.deb  
+$cd  
+$emacs .bashrc   
+export NUITRACK_HOME=/usr/etc/nuitrack  
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/etc/nuitrack/middleware:/usr/local/lib/nuitrack  
+$source .bashrc  
+$cd  
+$cd github/nuitrack-sdk/Nuitrack/include  
+$sudo mkdir /usr/local/include/nuitrack  
+$sudo cp -r * /usr/local/include/nuitrack/  
 
-**RTM側**
-* 開発言語:C++
-* ミドルウェア:OpenRTM-2.0.0  
-
-**ROS側**
-* 開発言語:C++
-* ミドルウェア:ROS Noetic
-
-# 開発したコンポーネント
-* [HumanDetection](https://github.com/rsdlab/HumanDetection/tree/master/RTC/HumanDetection)
-* [HumanProtection](https://github.com/rsdlab/HumanDetection/tree/master/RTC/HumanProtection)  
-
-# ドキュメント
-**マニュアル**
-* 人検知モジュールを用いた人協働ロボットシステムマニュアル・・・準備中
-
-**仕様書**
-* [HumanDetection仕様書](https://github.com/rsdlab/HumanDetection/blob/master/Documents/HumanDetectionSpecification.pdf)
-* [HumanProtection仕様書](https://github.com/rsdlab/HumanDetection/blob/master/Documents/HumanProtectionSpecification.pdf)
-
-**その他**
-* プレゼンテーション動画・・・準備中
-* RTMコンテストプレゼン資料・・・準備中
+6. Nuitrackの動作確認  
+$nuitrack
