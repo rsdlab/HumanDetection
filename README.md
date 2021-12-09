@@ -6,7 +6,7 @@
 * このロボットシステムは，ロボットアーム，移動台車，RGB-Dカメラの3つのハードウェア・モジュールで構成されており，それぞれMikataArm，Rasberry Pi Cat，RealSense Depth Camera D435iを用いて検証した  
 
 # 開発環境
-* 言語：C++  
+* 言語：C++, Python
 * OS:Linux(Ubuntu18.04)  
 * RTミドルウェア：OpenRTM-aist-2.0  
 * ROS:ROS melodic  
