@@ -16,11 +16,11 @@
 
 # ドキュメント
 **マニュアル**
-* [人認識ミドルウェア(NuiTrack)の環境構築と動作確認](http://www1.meijo-u.ac.jp/~kohara/cms/technicalreport/ros_nuitrack)
+* 人認識ミドルウェア(NuiTrack)の環境構築と動作確認
 
 **仕様書**
-* HumanDetection仕様書
-* CollaborativeRobotSystem仕様書 
+* [HumanDetection仕様書](https://github.com/rsdlab/HumanDetection/blob/master/Documents/HumanDetectionSpecification.pdf)
+* [HumanProtection仕様書](https://github.com/rsdlab/HumanDetection/blob/master/Documents/HumanProtectionSpecification.pdf)
 
 **その他**
 * プレゼンテーション動画・・・準備中
