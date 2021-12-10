@@ -1,12 +1,12 @@
 # 人検知モジュールを用いた人協働ロボットシステム  
 
 # 概要
-**Nuitrackライブラリを用いた人検出コンポーネント**  
+**[Nuitrack](https://nuitrack.com/jp)ライブラリを用いた人検出コンポーネント**  
 
 このコンポーネントではRealSenseなどのRGB-Dカメラを用いて、人の手や、骨格、顔のトラッキングが可能になります。（骨格と顔は対応中）
 
 
-**このコンポーネントの応用として、昨年度のRTMコンテストで発表された「RTMとROSを用いた物体操作システム」の再利用を通じた、人協働マニピュレーションシステムにおける安全機能を実現**  
+**このコンポーネントの応用として、昨年度のRTMコンテストで発表された「[RTMとROSを用いた物体操作システム](https://openrtm.org/openrtm/ja/node/7086)」の再利用を通じた、人協働マニピュレーションシステムにおける安全機能を実現**  
 
 このロボットシステムは，ROSで動作するROBOTIS社のMikataArmの動作を人検出モジュールからの情報で制御する例を公開しています。（資料準備中）  
 
@@ -37,9 +37,13 @@
 |:------:|:------:|  
 | ミドルウェア | ROS Noetic |  
 
-# 開発したコンポーネント
+# コンポーネント
+**開発したコンポーネント**
 * [HumanDetection](https://github.com/rsdlab/HumanDetection/tree/master/RTC/HumanDetection)
 * [HumanProtection](https://github.com/rsdlab/HumanDetection/tree/master/RTC/HumanProtection)  
+
+**再利用したコンポーネント、ノード**  
+* [RTMとROSを用いた物体操作システム](https://openrtm.org/openrtm/ja/node/7086)
 
 # ドキュメント
 **マニュアル**
