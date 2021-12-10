@@ -9,22 +9,26 @@
 
 # 仕様
 **人検知コンポーネント**  
-* 開発言語:C++  
-* OS:Linux(Ubuntu18.04)  
-* ミドルウェア:OpenRTM-1.2.2 
+| 開発言語 | C ++ |  
+|:------:|:------:|
+| OS | Linux(Ubuntu18.04) |  
+| ミドルウェア | OpenRTM-1.2.2 |
 
 **アーム制御コンポーネント**  
 
 **共通**
-* OS:Ubuntu20.04   
+| OS | Ubuntu20.04 |
+|:------:|:------:|
 
 **RTM側**
-* 開発言語:C++
-* ミドルウェア:OpenRTM-2.0.0  
+| 開発言語 | C++ |  
+|:------:|:------:|
+| ミドルウェア | OpenRTM-2.0.0 |  
 
 **ROS側**
-* 開発言語:C++
-* ミドルウェア:ROS Noetic
+| 開発言語 | C++ |
+|:------:|:------:|  
+| ミドルウェア | ROS Noetic |  
 
 # 開発したコンポーネント
 * [HumanDetection](https://github.com/rsdlab/HumanDetection/tree/master/RTC/HumanDetection)
