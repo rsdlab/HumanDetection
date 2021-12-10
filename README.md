@@ -50,5 +50,5 @@
 * [HumanProtection仕様書](https://github.com/rsdlab/HumanDetection/blob/master/Documents/HumanProtectionSpecification.pdf)
 
 **その他**
-* プレゼンテーション動画・・・準備中
+* デモ動画・・・準備中
 * RTMコンテストプレゼン資料・・・準備中
