@@ -52,7 +52,7 @@ $sudo cp -r * /usr/local/include/nuitrack/
 
 6. Nuitrackの動作確認  
 -Nuitrackの環境構築が完了したので，これからNuitrackの動作検証を行う．
-以下のコマンドでnuitrackのサンプルプログラムの起動を行う．
+以下のコマンドでnuitrackのサンプルプログラムの起動を行う．  
 $nuitrack  
 -最初に，Realsenseを接続する．
 -なお，接続するRealsenseがすでにActivateがすんでいるものの場合，対応するActivationKeyを準備すること  
