@@ -39,24 +39,24 @@ $sudo apt install ./nuitrack-ubuntu-amd64.deb
 -「nuitrack」コマンドを動作させるためには，環境変数を登録する必要がある．  
 $cd  
 $emacs .bashrc   
--一番下に以下のように環境変数を追加する．  
+-一番下に以下のように環境変数を追加する  
 export NUITRACK_HOME=/usr/etc/nuitrack  
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/etc/nuitrack/middleware:/usr/local/lib/nuitrack  
--追加したら，以下のようにして設定を反映させる．  
+-追加したら，以下のようにして設定を反映させる  
 $source .bashrc  
--ライブラリ関係は環境変数にも設定したように，/usr以下にコピーされるが，includeディレクトリの中身までコピーされていないため，手動でコピーを行う．  
+-ライブラリ関係は環境変数にも設定したように，/usr以下にコピーされるが，includeディレクトリの中身までコピーされていないため，手動でコピーを行う  
 $cd  
 $cd github/nuitrack-sdk/Nuitrack/include  
 $sudo mkdir /usr/local/include/nuitrack  
 $sudo cp -r * /usr/local/include/nuitrack/  
 
 6. Nuitrackの動作確認  
--Nuitrackの環境構築が完了したので，これからNuitrackの動作検証を行う．
-以下のコマンドでnuitrackのサンプルプログラムの起動を行う．  
+-Nuitrackの環境構築が完了したので，これからNuitrackの動作検証を行う  
+以下のコマンドでnuitrackのサンプルプログラムの起動を行う  
 $nuitrack  
--最初に，Realsenseを接続する．
+-最初に，Realsenseを接続する  
 -なお，接続するRealsenseがすでにActivateがすんでいるものの場合，対応するActivationKeyを準備すること  
--ActivationKeyを準備した状態で，「1. Choose a 3D sensor and activate it」の「Select 3D Sensor」で接続したRealsenseを選択する．  
--続いて，「Enter Activation Key」のところで，準備したActivation Keyを入力する．  
--サンプルの動作確認として，Skeltal Trackingにチェックをいれて，「Try Nuitrack!」ボタンを押す．<ｂｒ>  
--正しく，画面が出てスケルトントラッキングができていればnuitrackのランタイムの導入が完了．  
+-ActivationKeyを準備した状態で，「1. Choose a 3D sensor and activate it」の「Select 3D Sensor」で接続したRealsenseを選択する  
+-続いて，「Enter Activation Key」のところで，準備したActivation Keyを入力する  
+-サンプルの動作確認として，Skeltal Trackingにチェックをいれて，「Try Nuitrack!」ボタンを押す <ｂｒ>  
+-正しく，画面が出てスケルトントラッキングができていればnuitrackのランタイムの導入が完了  
