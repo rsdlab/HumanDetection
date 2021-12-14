@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/HumanProtectionComp.dir/HumanProtectionComp.cpp.o CMakeFiles/HumanProtectionComp.dir/HumanProtection.cpp.o CMakeFiles/HumanProtectionComp.dir/idl/TimedPose3DQuaternionSkel.cpp.o  -o HumanProtectionComp -lpthread -lomniORB4 -lomnithread -lomniDynamic4 -lomnisslTP4 -lRTC -lcoil -lrtmCamera -lrtmManipulator 
