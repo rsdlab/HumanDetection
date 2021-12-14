@@ -1,0 +1,54 @@
+# HumanDetection CMake config file
+#
+# This file sets the following variables:
+# HumanDetection_FOUND - Always TRUE.
+# HumanDetection_INCLUDE_DIRS - Directories containing the HumanDetection include files.
+# HumanDetection_IDL_DIRS - Directories containing the HumanDetection IDL files.
+# HumanDetection_LIBRARIES - Libraries needed to use HumanDetection.
+# HumanDetection_DEFINITIONS - Compiler flags for HumanDetection.
+# HumanDetection_VERSION - The version of HumanDetection found.
+# HumanDetection_VERSION_MAJOR - The major version of HumanDetection found.
+# HumanDetection_VERSION_MINOR - The minor version of HumanDetection found.
+# HumanDetection_VERSION_REVISION - The revision version of HumanDetection found.
+# HumanDetection_VERSION_CANDIDATE - The candidate version of HumanDetection found.
+
+message(STATUS "Found HumanDetection-@PROJECT_VERSION@")
+set(HumanDetection_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(HumanDetection_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(HumanDetection_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(HumanDetection_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(HumanDetection_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(HumanDetection_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(HumanDetection_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(HumanDetection_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(HumanDetection_VERSION @PROJECT_VERSION@)
+set(HumanDetection_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(HumanDetection_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(HumanDetection_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(HumanDetection_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
