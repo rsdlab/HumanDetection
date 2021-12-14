@@ -1,0 +1,29 @@
+#ifndef TimedSkelton_idl
+#define TimedSkelton_idl
+
+#include "BasicDataType.idl"
+#include "ExtendedDataTypes.idl"
+#include "TimedPose3DQuaternion.idl"
+
+module RTC {
+
+    struct Skelton
+    {
+        long ID;
+        sequence<Pose3DQuaternion> pose_q;
+    };
+    
+    struct TimedSkelton
+    {
+        Time tm;
+        Skelton skl;
+    };
+
+    struct TimedSkeltonSeq
+    {
+        Time tm;
+        sequence<Skelton> data;
+    };
+};
+
+#endif
