@@ -1,0 +1,4 @@
+manager.modules.load_path: /usr/local/lib/openrtm-2.0/transport/
+manager.modules.preload: ROSTransport.so
+manager.components.preconnect: Manager0.start_move?interface_type=ros&marshaling_type=ros:std_msgs/String&ros.topic=start_signal&ros.node.name=Manager&ros.roscore.host=192.168.51.106&ros.roscore.port=11311,Manager0.stop_move?interface_type=ros&marshaling_type=ros:std_msgs/String&ros.topic=end_signal&ros.node.name=Manager&ros.roscore.host=192.168.51.106&ros.roscore.port=11311,Manager0.stop?interface_type=ros&marshaling_type=ros:std_msgs/String&ros.topic=stop&ros.node.name=Manager&ros.roscore.host=192.168.51.106&ros.roscore.port=11311,Manager0.end_manip?interface_type=ros&marshaling_type=ros:std_msgs/String&ros.topic=end_manip&ros.node.name=Manager&ros.roscore.host=192.168.51.106&ros.roscore.port=11311
+exec_cxt.periodic.rate: 400

@@ -1,0 +1,54 @@
+# Manager CMake config file
+#
+# This file sets the following variables:
+# Manager_FOUND - Always TRUE.
+# Manager_INCLUDE_DIRS - Directories containing the Manager include files.
+# Manager_IDL_DIRS - Directories containing the Manager IDL files.
+# Manager_LIBRARIES - Libraries needed to use Manager.
+# Manager_DEFINITIONS - Compiler flags for Manager.
+# Manager_VERSION - The version of Manager found.
+# Manager_VERSION_MAJOR - The major version of Manager found.
+# Manager_VERSION_MINOR - The minor version of Manager found.
+# Manager_VERSION_REVISION - The revision version of Manager found.
+# Manager_VERSION_CANDIDATE - The candidate version of Manager found.
+
+message(STATUS "Found Manager-@PROJECT_VERSION@")
+set(Manager_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(Manager_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(Manager_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(Manager_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(Manager_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(Manager_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(Manager_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(Manager_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(Manager_VERSION @PROJECT_VERSION@)
+set(Manager_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(Manager_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(Manager_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(Manager_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

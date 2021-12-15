@@ -1,0 +1,242 @@
+﻿// -*- C++ -*-
+/*!
+ * @file  Manager.cpp
+ * @brief Manager
+ * @date $Date$
+ *
+ * $Id$
+ */
+
+#include "Manager.h"
+
+JARA_ARM::JointPos jointPoint;
+
+// Module specification
+// <rtc-template block="module_spec">
+static const char* manager_spec[] =
+  {
+    "implementation_id", "Manager",
+    "type_name",         "Manager",
+    "description",       "Manager",
+    "version",           "1.0.0",
+    "vendor",            "rsdlab",
+    "category",          "Manager",
+    "activity_type",     "PERIODIC",
+    "kind",              "DataFlowComponent",
+    "max_instance",      "1",
+    "language",          "C++",
+    "lang_type",         "compile",
+    ""
+  };
+// </rtc-template>
+
+/*!
+ * @brief constructor
+ * @param manager Maneger Object
+ */
+ 
+Manager::Manager(RTC::Manager* manager)
+    // <rtc-template block="initializer">
+  : RTC::DataFlowComponentBase(manager),
+    m_safetyIn("safety", m_safety),
+    m_end_moveIn("end_move", m_end_move),
+    m_stopOut("stop", m_stop),
+    m_start_moveOut("start_move", m_start_move),
+    m_ManipulatorCommonInterface_CommonPort("ManipulatorCommonInterface_Common"),
+    m_ManipulatorCommonInterface_MiddlePort("ManipulatorCommonInterface_Middle")
+
+    // </rtc-template>
+{
+}
+
+/*!
+ * @brief destructor
+ */
+Manager::~Manager()
+{
+}
+
+
+
+RTC::ReturnCode_t Manager::onInitialize()
+{
+  // Registration: InPort/OutPort/Service
+  // <rtc-template block="registration">
+  // Set InPort buffers
+  addInPort("safety", m_safetyIn);
+  addInPort("end_move", m_end_moveIn);
+
+  // Set OutPort buffer
+  addOutPort("stop", m_stopOut);
+  addOutPort("start_move", m_start_moveOut);
+
+  // Set service provider to Ports
+
+  // Set service consumers to Ports
+  m_ManipulatorCommonInterface_CommonPort.registerConsumer("ManipulatorCommonInterface_Common", "JARA_ARM::ManipulatorCommonInterface_Common", m_ManipulatorCommonInterface_Common);
+  m_ManipulatorCommonInterface_MiddlePort.registerConsumer("ManipulatorCommonInterface_Middle", "JARA_ARM::ManipulatorCommonInterface_Middle", m_ManipulatorCommonInterface_Middle);
+
+  // Set CORBA Service Ports
+  addPort(m_ManipulatorCommonInterface_CommonPort);
+  addPort(m_ManipulatorCommonInterface_MiddlePort);
+
+  // </rtc-template>
+
+  // <rtc-template block="bind_config">
+  // </rtc-template>
+
+  return RTC::RTC_OK;
+}
+
+/*
+RTC::ReturnCode_t Manager::onFinalize()
+{
+  return RTC::RTC_OK;
+}
+*/
+
+/*
+RTC::ReturnCode_t Manager::onStartup(RTC::UniqueId ec_id)
+{
+  return RTC::RTC_OK;
+}
+*/
+
+/*
+RTC::ReturnCode_t Manager::onShutdown(RTC::UniqueId ec_id)
+{
+  return RTC::RTC_OK;
+}
+*/
+
+
+RTC::ReturnCode_t Manager::onActivated(RTC::UniqueId ec_id)
+{
+  //プロバイダより遅くActivateするため
+  sleep(1);
+
+  m_start_move.data = "start";
+
+  // JARA_ARM::JointPos jointPoint;
+  jointPoint.length(6);
+  std::cout << "土台から先端に向かって第1関節〜第6関節" << std::endl << "関節角度を入力してください　単位[rad]" << std::endl;
+  std::cout << "第1関節の角度 : ";
+  std::cin >>jointPoint[0];
+  std::cout << "第2関節の角度 : ";
+  std::cin >>jointPoint[1];
+  std::cout << "第3関節の角度 : ";
+  std::cin >>jointPoint[2];
+  std::cout << "第4関節の角度 : ";
+  std::cin >>jointPoint[3];
+  std::cout << "第5関節の角度 : ";
+  std::cin >>jointPoint[4];
+  std::cout << "第6関節の角度 : ";
+  std::cin >>jointPoint[5];
+  std::cout << std::endl; 
+
+  return RTC::RTC_OK;
+}
+
+
+RTC::ReturnCode_t Manager::onDeactivated(RTC::UniqueId ec_id)
+{
+
+
+  return RTC::RTC_OK;
+}
+
+
+RTC::ReturnCode_t Manager::onExecute(RTC::UniqueId ec_id)
+{
+
+  if(!goal_)
+  {
+    // 移動開始
+    m_start_moveOut.write();
+
+    if(m_end_moveIn.isNew())
+    {
+      // ROS側から到着命令受信
+      m_end_moveIn.read();
+      goal_ = true;
+    }
+  }
+
+  //safetyにデータが入ってきているかチェック
+  if(m_safetyIn.isNew() && goal_)
+  {
+
+    //データがあれば下記関数で変数にデータを読み込む
+    m_safetyIn.read();
+
+    //safetyのデータが0であれば，stop:関節角度を送信
+    if(m_safety.data == 0)
+    {
+      // joint ros send
+      m_ManipulatorCommonInterface_Middle->movePTPJointAbs(jointPoint);
+    }
+    else
+    {
+      // ros send
+      m_stop.data = 1;
+
+      m_stopOut.write();
+    }
+  }
+  else
+    std::cout << "safetyからのデータを受信していません" << std::endl;
+
+  return RTC::RTC_OK;
+}
+
+/*
+RTC::ReturnCode_t Manager::onAborting(RTC::UniqueId ec_id)
+{
+  return RTC::RTC_OK;
+}
+*/
+
+/*
+RTC::ReturnCode_t Manager::onError(RTC::UniqueId ec_id)
+{
+  return RTC::RTC_OK;
+}
+*/
+
+/*
+RTC::ReturnCode_t Manager::onReset(RTC::UniqueId ec_id)
+{
+  return RTC::RTC_OK;
+}
+*/
+
+/*
+RTC::ReturnCode_t Manager::onStateUpdate(RTC::UniqueId ec_id)
+{
+  return RTC::RTC_OK;
+}
+*/
+
+/*
+RTC::ReturnCode_t Manager::onRateChanged(RTC::UniqueId ec_id)
+{
+  return RTC::RTC_OK;
+}
+*/
+
+
+
+extern "C"
+{
+
+  void ManagerInit(RTC::Manager* manager)
+  {
+    coil::Properties profile(manager_spec);
+    manager->registerFactory(profile,
+                             RTC::Create<Manager>,
+                             RTC::Delete<Manager>);
+  }
+
+};
+
+
